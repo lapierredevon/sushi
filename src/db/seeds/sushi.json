@@ -1,0 +1,45 @@
+[
+    {
+    "menu_item": "California Roll",
+    "price": 7.00
+    },
+    {
+    "menu_item": "Tuna Roll",
+    "price": 6.00
+    },
+    {
+    "menu_item": "Spicy Tuna Roll",
+    "price": 7.00
+    },
+    {
+    "menu_item": "Yellow Tail Scallion Roll",
+    "price": 7.00
+    },
+    {
+    "menu_item": "Salmon Roll",
+    "price": 6.00
+    },
+    {
+    "menu_item": "Spicy Salmon Roll",
+    "price": 7.00
+    },
+    {
+    "menu_item": "Salmon Mango Roll",
+    "price": 7.00
+    },
+    {
+    "menu_item": "Eel Cucumber Roll",
+    "price": 7.00
+    },{
+    "menu_item": "Salmon Special Roll",
+    "price": 11.00
+    },
+    {
+    "menu_item": "King Crab Avocado Roll",
+    "price": 11.00
+    },
+    {
+    "menu_item": "Squid Umeshiso Roll",
+    "price": 10.00
+    }
+]
