@@ -1,10 +1,10 @@
 const knex = require("../db/connection");
 const tableName = "sushi";
 
-const list = () => {
+const menu = () => {
   return knex(tableName).select("*");
 };
 
-module.export = {
-  list,
+module.exports = {
+  menu,
 };
