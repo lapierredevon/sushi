@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/sushi", sushiRouter);
-app.use("/order", orderRouter);
+app.use("/orders", orderRouter);
 
 app.use(notFound);
 app.use(errorHandler);

@@ -7,6 +7,7 @@ const VALID_PROPERTIES = ["receipt"];
 
 const validPropertiesCheck = (req, res, next) => {
   const { data = {} } = req.body;
+  console.log("validPropertiesCheck", data);
   const properties = Object.keys(data).filter(
     (element) => !VALID_PROPERTIES.includes(element)
   );
@@ -17,19 +18,21 @@ const validPropertiesCheck = (req, res, next) => {
       message: `missing ${properties} property`,
     });
   } else {
+    console.log("validPropertiesCheck", "made it to next");
     next();
   }
 };
 
 const ordersNotEmpty = (req, res, next) => {
   const { receipt = {} } = req.body.data;
-
+  console.log("made it to ordersNotEmpty", receipt);
   if (receipt.length <= 0) {
     next({
       status: 400,
       message: `Order can not be empty`,
     });
   }
+  next();
 };
 
 const create = async (req, res, next) => {
@@ -39,8 +42,8 @@ const create = async (req, res, next) => {
 
 module.exports = {
   create: [
-    validPropertiesCheck,
     checkForProperties,
+    validPropertiesCheck,
     ordersNotEmpty,
     asyncErrorBoundary(create),
   ],
