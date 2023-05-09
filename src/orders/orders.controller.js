@@ -36,7 +36,12 @@ const ordersNotEmpty = (req, res, next) => {
 };
 
 const create = async (req, res, next) => {
-  const postOrder = await ordersService.create(req.body.data);
+  const { receipt } = ({} = req.body.data);
+  const postOrder = await ordersService.create({
+    receipt: JSON.stringify(receipt),
+  });
+
+  console.log("Check post order data", postOrder);
   res.status(204).json({ data: postOrder });
 };
 
