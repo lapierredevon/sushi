@@ -35,6 +35,18 @@ const ordersNotEmpty = (req, res, next) => {
   next();
 };
 
+const orderExist = async (req, res, next) => {
+  const order = await ordersService.read(req.params.orderId);
+  if (order) {
+    res.locals.order = order;
+    return next();
+  }
+  next({
+    status: 404,
+    message: `No existing order matching the id`,
+  });
+};
+
 const create = async (req, res, next) => {
   const { receipt } = ({} = req.body.data);
   const postOrder = await ordersService.create({
@@ -45,6 +57,10 @@ const create = async (req, res, next) => {
   res.status(204).json({ data: postOrder });
 };
 
+const read = async (req, res, next) => {
+  res.json({ data: res.locals.order });
+};
+
 module.exports = {
   create: [
     checkForProperties,
@@ -52,4 +68,5 @@ module.exports = {
     ordersNotEmpty,
     asyncErrorBoundary(create),
   ],
+  read: [asyncErrorBoundary(orderExist), read],
 };
