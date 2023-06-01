@@ -54,7 +54,7 @@ const create = async (req, res, next) => {
   });
 
   console.log("Check post order data", postOrder);
-  res.status(204).json({ data: postOrder });
+  res.status(201).json({ data: postOrder });
 };
 
 const read = async (req, res, next) => {
